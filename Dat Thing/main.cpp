@@ -101,7 +101,7 @@ int main() {
                     cout << Normalize(toPrint);
                 }
                 else {
-                    toPrint = "There is no one to feed on in this area. Better move along to the next area.";                //Outputs to the consol when there are no living characters in the area.
+                    toPrint = "Senpai, don't waste time here. Continue on with your quest >_<!";                //Outputs to the consol when there are no living characters in the area.
                     if (map.GetLocation(Oleg).GetName() == "Lab") {
                         toPrint += " There is an exit to the north. ";
                     }
@@ -133,7 +133,7 @@ int main() {
         
                 else {
                     if (map.GetLocation(Oleg).GetNumChar() == 0 || map.GetLocation(Oleg).GetChar(0).GetBeaten()) {
-                        toPrint = "There are no other living beings in your immediate vicinity.";
+                        toPrint = "There are no other enemies in your immediate vicinity, good job, Senpai!";
                         cout << Normalize(toPrint);
                     }
                     else if (map.GetLocation(Oleg).GetChar(0).Attack(Oleg)) {
@@ -141,7 +141,7 @@ int main() {
                     }
                     else {
 
-                        toPrint = "Congratulations! You are dynamite, and " + map.GetLocation(Oleg).GetChar(0).GetName() // name of character
+                        toPrint = "Sugoi! You are dynamite, and " + map.GetLocation(Oleg).GetChar(0).GetName() // name of character
                             + " will not risk another frontal assualt. ";
                         cout << Normalize(toPrint);
                         map.GetLocation(Oleg).GetChar(0).SetBeaten(true);
