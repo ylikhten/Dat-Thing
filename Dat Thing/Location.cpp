@@ -93,7 +93,7 @@ Character& Location::GetChar(int index) {
 void Location::Look() {
     cout << Normalize(FlvTxt) << endl;
     for (int i = 0; i < characters.size(); ++i)
-        cout << characters.at(i).GetName() << " is in the room.\n";
+        cout << characters.at(i).GetName() << " is in the " << GetName();
     if (characters.size() > 0) {
         if (characters.size() > 1) {
             cout << "\nAvailable commands:\n'attack'\n'move'\n'look'\n'talk'\n";

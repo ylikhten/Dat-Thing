@@ -108,6 +108,6 @@ string Character::CleanUp(string str) {
 }
 
 void Character::AdjustName() {
-    if (beaten)
+    if (beaten && endurance < 100)
         name += "'s body";
 }

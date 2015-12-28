@@ -29,11 +29,12 @@ int main() {
 
     
     Character Dad; //1
+   // Dad.retrieveLines(textfilenamefordad)
     Character Troll(100, 10, true, "Troll"); //2
     Character Nazi(1, 1, false, "Grammar Nazi"); //3
     Character Atheist(1, 1, false, "Middle School Atheist");   //4
     Character Bro(1, 1, false, "Fit Bro");    //5
-    Character Cums(1, 1, false, "Big Cums"); //6
+    Character Fedora(1, 1, false, "Fedora"); //6
     Character Stan(1, 1, false, "Stan");   //7
     Character Oppai(100, 10, true, "Oppai Chan");    //8
     Character Charf(100, 10, true, "An Hero"); //9 
@@ -51,7 +52,7 @@ int main() {
     map.GetMap()[2][0].AddChar(Nazi);   //3
     map.GetMap()[2][1].AddChar(Atheist);  //4
     map.GetMap()[4][1].AddChar(Bro);    //5
-    map.GetMap()[1][0].AddChar(Cums);   //6
+    map.GetMap()[1][0].AddChar(Fedora);   //6
     map.GetMap()[4][2].AddChar(Stan);  //7
     map.GetMap()[1][1].AddChar(Oppai);    //8
     map.GetMap()[4][3].AddChar(Charf);   //9
@@ -65,7 +66,12 @@ int main() {
 
 
     //Gameplay stuff
-    //cout << "***********PLIGHT OF THE VAMPIRE RABBIT***********" << endl;
+    cout << "***********Kawaifu Quest***********" << endl << endl;
+
+    string waifu;
+    cout << "> waifu name: ";
+    cin >> waifu;
+    cin.ignore();
     //toPrint = "It's a dark, stormy night and you (Bunnicula) have just woken up on the first floor of Brown Building in what appears to be a computer lab. "
     //    "Disoriented and confused, an urgent thought comes into your mind I have to get out of here! "
     //    "And so, dear, fluffy adventurer, your journey begins. You may want to 'look' around to see what is immediately surrounding you. Base your actions on what you see. (Enter 'look,' sans apostrophes.)";
@@ -105,7 +111,7 @@ int main() {
                     else if (map.GetLocation(Oleg).GetName() == "HallwayB") {
                         toPrint += " The final step in your quest for freedom lies to the east.";
                     }
-                    toPrint += map.GetLocation(Oleg).GetChar(0).GetName() + " is in the room.";
+                    toPrint += map.GetLocation(Oleg).GetChar(0).GetName() + " is in the " + map.GetLocation(Oleg).GetName();
                     cout << Normalize(toPrint) << endl;
                     if ((map.GetLocation(Oleg).GetNumChar() == 2)) {
                         cout << "\nAvailable commands:\n'move'\n'look'\n'talk'\n";
