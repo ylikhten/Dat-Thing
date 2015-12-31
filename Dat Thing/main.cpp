@@ -8,7 +8,7 @@ const int MAX_CHR = Location::MAX_CHR;
 void Move( Player &oleg, Map &map);
 string CleanUp(string str);
 string Normalize(string str);
-void Cont(Map &map, Player &oleg);
+string Cont(Map &map, Player &Oleg);
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -182,54 +182,22 @@ int main() {
             else if (action == "look") {
                 if (map.GetLocation(Oleg).GetNumChar() == 0 || (!(map.GetLocation(Oleg).GetChar(0).GetBeaten()) && map.GetLocation(Oleg).GetChar(0).GetEndurance() < 100)) {
                     map.GetLocation(Oleg).Look();
+                    cout << Normalize(Cont(map, Oleg)) << endl;
                     toPrint = "Current Location: " + map.GetLocation(Oleg).GetName();
                     cout << Normalize(toPrint);
                 }
                 else if ((map.GetLocation(Oleg).GetChar(0).GetBeaten()) && map.GetLocation(Oleg).GetChar(0).GetEndurance() == 100) {
                     map.GetLocation(Oleg).Look();
+                    cout << Normalize(Cont(map, Oleg)) << endl;
                     toPrint = "Current Location: " + map.GetLocation(Oleg).GetName();
                     cout << Normalize(toPrint);
                 }
                 else {
                     toPrint = "Senpai, don't waste time here. Continue on with your quest >_<!\n";                //Outputs to the consol when there are no living characters in the area.
-                    if (map.GetLocation(Oleg).GetName() == "Home") {
-                        toPrint += " > Should be able to 'move' north (up arrow key) to exit through the front door or east (right arrow key) to exit through the patio. ";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "FieldA") {
-                        toPrint += " > see a trail heading south  ";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "ClifA") {
-                        toPrint += " > cliff continues to the east, better be on way";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "ClifB") {
-                        toPrint += " > Continue east along the cliff";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "ClifC") {
-                        toPrint += " > town nearby. only way to go is north!";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "Town") {
-                        toPrint += " > nothing more to do here. Gotta head north to leave town";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "Gorge") {
-                        toPrint += " > close to victory... head north!";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "FieldB") {
-                        toPrint += " > head north";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "Marsh") {
-                        toPrint += " > head east and never look back";                   
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "CaveA") {
-                        toPrint += " > it's dark, but it seems the only way to go is east";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "CaveB") {
-                        toPrint += " > there's a light at the end of the cave in the east direction";
-                    }
-                    else if (map.GetLocation(Oleg).GetName() == "Goal") {
-                        toPrint += " > -------------------------";
-                    }
+
                     toPrint += "\n" + map.GetLocation(Oleg).GetChar(0).GetName() + " is in the area";
-                    cout << Normalize(toPrint) << endl;
+
+                    cout << Normalize(Cont(map, Oleg)) << endl;
                     if ((map.GetLocation(Oleg).GetNumChar() == 1)) {
                         cout << "\nAvailable commands:\n'move'\n'look'\n'talk'\n";
                     }
@@ -430,28 +398,55 @@ string Normalize(string str) {
     return str;
 }
 
-void Cont(Map &map, Player &oleg) {
-
-    if (map.GetLocation(oleg).GetName() == "Home") {
-        cout << "> \"your waifu a shit,\" he says. " << endl << "> ohItsOn.jpg " << endl << "> prepare to travel to the ends of the earth to find this guy and... beat him up " << endl;
-        cout << "> Suddenly, Dad busts in shouting and shit " << endl;
-        cout << endl << "Dad: I'm tired of you being such a pussy! Get off your damn computer! " << endl << endl;
-        cout << "> Oh shit " << endl << "> Better 'attack' this faggot " << endl;
-        if (map.GetLocation(oleg).GetChar(0).GetBeaten() && map.GetLocation(oleg).GetChar(0).GetEndurance() < 100) {
-            cout << "> Better leave before mom calls for dinner " << endl;
-            cout << "> Should 'move' north (up arrow key) to exit through the front door or east (right arrow key) to exit through the patio. " << endl;
-
-        }
+string Cont(Map &map, Player &Oleg) {
+    string toPrint;
+    if (map.GetLocation(Oleg).GetName() == "Home") {
+        toPrint += " > Should be able to 'move' north (up arrow key) to exit through the front door or east (right arrow key) to exit through the patio. ";
+        return toPrint;
     }
-    else if (map.GetLocation(oleg).GetName() == "FieldA") {
-        cout << "> Be me. Be in a field. \n> Some fag meandering about.\n> Should probably 'talk' to him " << endl;
-
-
+    else if (map.GetLocation(Oleg).GetName() == "FieldA") {
+        toPrint += " > See a trail heading south  ";
+        return toPrint;
     }
-    else if (map.GetLocation(oleg).GetName() == "ClifA") {
-        cout << "> Walk for fucking ages… Then finally on top of a cliff \n> spot guy doing pull ups from a tree branch \n> go up to see if he will disclose his secrets to dat pump" << endl;
-
-
+    else if (map.GetLocation(Oleg).GetName() == "ClifA") {
+        toPrint += " > Cliff continues to the east, better be on way";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "ClifB") {
+        toPrint += " > Continue east along the cliff";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "ClifC") {
+        toPrint += " >Town nearby. Only way to go is north!";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "Town") {
+        toPrint += " > Nothing more to do here. Gotta head north to leave town";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "Gorge") {
+        toPrint += " > Close to victory... head north!";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "FieldB") {
+        toPrint += " > Head north";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "Marsh") {
+        toPrint += " > Head east and never look back";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "CaveA") {
+        toPrint += " > It's dark, but it seems the only way to go is east";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "CaveB") {
+        toPrint += " > There's a light at the end of the cave in the east direction";
+        return toPrint;
+    }
+    else if (map.GetLocation(Oleg).GetName() == "Goal") {
+        toPrint += " > -------------------------";
+        return toPrint;
     }
 
     
