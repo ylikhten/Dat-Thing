@@ -3,9 +3,9 @@
 
 // Default Constructor
 Location::Location() {
-    //name = "MEH";
-    //characters.resize(0);
-    //string FlvTxt = "WUT";
+    name = "MEH";
+    characters.resize(0);
+    string FlvTxt = "WUT";
 
 }
 
@@ -14,33 +14,45 @@ Location::Location(string name, short numCharacters) {
     this->name = name;
     characters.resize(numCharacters);
 
-    //if (name == "Lab") {
-    //    FlvTxt = "You see a single student doing a programming assignment. Otherwise, the lab is empty, and there is an exit to the north. The student seems to be fatigued from pulling"
-    //        "three all-nighters, and his obscene Blood-Coffee content has left him disoriented."
-    //        "As it so happens, you find yourself parched and in need of a boost in morale.... This student seems to be an appropriate target...";
+    if (name == "Home") {
+       
+        FlvTxt = "";
+    }
+    else if (name == "FieldA") {
 
-    //}
-    //else if (name == "Starbucks") {
-    //    FlvTxt = "You approach a portrait of an exquisute, green, double-tailed mermaid. It seems to be an outlet of over-priced treats and there is a distinct smell of coffee in the air... "
-    //        "This must be where the first victim got his coffee! Well, good, it seems you are getting somewhere. You also note a hallway to the east. "
-    //        "Inside the cubic perimeter of the coffee dispensary, you see a woman who seems to be working at this establishment. She seems wise. Better not to feed on her."
-    //        "On the other hand, there is a professor sitting at a booth in front of the coffee dispensary, frantically grading exams. He would be a good target! But he does not seem as disoriented as the first opponent...";
+    }
+    else if (name == "ClifA") {
+ 
+    }
+    else if (name == "ClifB") {
 
-    //}
-    //else if (name == "HallwayA") {
-    //    FlvTxt = "You look around the hallway... It is barren -- no one to feed upon here. The next hallway is north, and your hunger has yet to be satiated.";
+    }
+    else if (name == "ClifC") {
 
-    //}
-    //else if (name == "HallwayB") {
+    }
+    else if (name == "Town") {
 
-    //    FlvTxt = "In front of you there is a student milling around to your east... The direction of the exit! The fool! Does he not know the fate that will befall him?!"
-    //        " You must rid the path of this nuisance, but be careful. He seems to be a more qualified foe than the rest.";
+    }
+    else if (name == "Gorge") {
 
-    //}
-    //else if (name == "Exit") {
-    //    FlvTxt = "You see the exit! The glorious exit! But what is this... Someone is blocking the exit, and what is worse, he looks to be a powerful opponent. You prepare yourself for an arduous battle.";
+    }
+    else if (name == "FieldB") {
 
-    //}
+    }
+    else if (name == "Marsh") {
+
+    }
+    else if (name == "CaveA") {
+
+    }
+    else if (name == "CaveB") {
+
+    }
+    else if (name == "Goal") {
+
+    }
+
+
 
 }
 
@@ -52,28 +64,44 @@ string Location::GetName() const {
 void Location::SetName(string name) {
     this->name = name;
 
-    //if (name == "Lab") {
-    //    FlvTxt = "You see a single student doing a programming assignment. Otherwise, the lab is empty, and there is an exit to the north. The student seems to be fatigued from pulling"
-    //        " three all-nighters, and his obscene Blood-Coffee content has left him disoriented."
-    //        " As it so happens, you find yourself parched and in need of a boost in morale.... This student seems to be an appropriate target..."
-    //        " You should choose to 'attack' any foes that may be present.";
-    //}
-    //else if (name == "Starbucks") {
-    //    FlvTxt = "You approach a portrait of an exquisute, green, double-tailed mermaid. It seems to be an outlet of over-priced treats and there is a distinct smell of coffee in the air... "
-    //        "This must be where the first victim got his coffee! Well, good, it seems you are getting somewhere. You also note a hallway to the east. "
-    //        "Inside the cubic perimeter of the coffee dispensary, you see a woman working at this establishment. She seems wise. Better not to feed on her. "
-    //        "On the other hand, there is a professor sitting at a booth in front of the coffee dispensary, frantically grading exams. He would be a good target! But he does not seem as disoriented as the first opponent...";
-    //}
-    //else if (name == "HallwayA") {
-    //    FlvTxt = "You look around the hallway... It is barren -- no one to feed upon here. The next hallway is north, and your hunger has yet to be satiated.";
-    //}
-    //else if (name == "HallwayB") {
-    //    FlvTxt = "In front of you there is a student milling around to your east... The direction of the exit! The fool! Does he not know the fate that will befall him?!"
-    //        " You must rid the path of this nuisance, but be careful. He seems to be a more qualified foe than the rest.";
-    //}
-    //else if (name == "Exit") {
-    //    FlvTxt = "You see the exit! The glorious exit! But what is this... Someone is blocking the exit, and what is worse, he looks to be a powerful opponent. You prepare yourself for an arduous battle.";
-    //}
+    if (name == "Home") {
+
+        FlvTxt = "";
+    }
+    else if (name == "FieldA") {
+
+    }
+    else if (name == "ClifA") {
+
+    }
+    else if (name == "ClifB") {
+
+    }
+    else if (name == "ClifC") {
+
+    }
+    else if (name == "Town") {
+
+    }
+    else if (name == "Gorge") {
+
+    }
+    else if (name == "FieldB") {
+
+    }
+    else if (name == "Marsh") {
+
+    }
+    else if (name == "CaveA") {
+
+    }
+    else if (name == "CaveB") {
+
+    }
+    else if (name == "Goal") {
+
+    }
+
 }
 
 short Location::GetNumChar() const {
@@ -90,10 +118,18 @@ Character& Location::GetChar(int index) {
 }
 
 //Member functions
+void Location::Text() {
+    int count = 0;
+    
+
+
+}
 void Location::Look() {
-    cout << Normalize(FlvTxt) << endl;
+    //cout << (FlvTxt) << endl;
+
+
     for (int i = 0; i < characters.size(); ++i)
-        cout << characters.at(i).GetName() << " is in the " << GetName();
+        cout << characters.at(i).GetName() << " is in the area";
     if (characters.size() > 0) {
         if (characters.size() > 1) {
             cout << "\nAvailable commands:\n'attack'\n'move'\n'look'\n'talk'\n";
@@ -104,11 +140,55 @@ void Location::Look() {
     }
 }
 void Location::Talk() {
-    if (characters.at(0).GetBeaten()) {
-        FlvTxt = "You turn your attention to the wise woman. She tells you some profound advice... \n" +
-            characters.at(1).GetName() + ": I hear tales of a cave not far from here. It is said to house the others of your kind. If you make it out of here alive, follow the 'M' on the mountain. It will guide to home!";
+    if (name == "FieldA") {
+        FlvTxt = "Troll: You look like you're on a quest m8. I suggest going east about here, it's a faster route.";
         cout << Normalize(FlvTxt) << endl;
+
+        //cout << "> See a trail heading south and another trail heading north " << endl;
+        //cout << "> ";
+        
     }
+    else if (name == "ClifA") {
+        FlvTxt = "Fit Bro: Wat you looking at faggot... WANNA FIGHT?!";
+        cout << Normalize(FlvTxt) << endl;
+        cout << "< He will not...";
+
+    }
+    else if (name == "ClifB") {
+        FlvTxt = "Stan: What a nice day for a hike.";
+        cout << Normalize(FlvTxt) << endl;
+        
+    }
+    else if (name == "ClifC") {
+        FlvTxt = "An Hero: Someone in town called me a plebeian and told me I had a weak jaw line. I’m going to end it! ;-;";
+        cout << Normalize(FlvTxt) << endl;
+        cout << "> Realize there is a town nearby. \n>Must be going right way. Continue north to town." << endl;
+
+    }
+    else if (name == "Town") {
+
+    }
+    else if (name == "Gorge") {
+
+    }
+    else if (name == "FieldB") {
+
+    }
+    else if (name == "Marsh") {
+
+    }
+    else if (name == "CaveA") {
+
+    }
+    else if (name == "CaveB") {
+
+    }
+    else if (name == "Goal") {
+
+    }
+
+
+
     else {
         cout << "\nPerhaps you should feed on your opponent first..." << endl;
     }

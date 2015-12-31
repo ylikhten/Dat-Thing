@@ -54,39 +54,48 @@ void Map::LoadFile(string filename) {
                 }
                 if (isalpha(c)) {
                     tempStr.push_back(c);
-                    //cout << c;                                    //DEBUGGER
+                    cout << c;                                    //DEBUGGER
                 }
 
             }
-            //cout << "\t";
-            //cout << tempStr << "\t";                              DEBUGGER
+            cout << "\t";
+            //cout << tempStr << "\t";                              //DEBUGGER
             tempRow.at(k).SetName(tempStr);
             c = 'c';
             tempStr = "";
         }
         map.at(i) = tempRow;
-        //cout << endl;                                             //DEBUGGER
+        cout << endl;                                             //DEBUGGER
     }
     file.close();                                                   // Closes file
 }
 
 //Checks if given location is invalid - defined by either not being on the map or by being at a NULL space within the map.
 bool Map::isValidLocation(int location[2], const Player &oleg) {
-    if (location[0] < 0 || location[0] > map.size() - 1 || location[1] < 0 || location[1] > map.at(0).size() - 1 || map[location[0]][location[1]].GetName() == "N" || map[location[0]][location[1]].GetName() == "NULL") {
-        cout << "That is not a valid direction, Senpai. Try typing 'look'\nto to orient yourself ;)" << endl;
+ 
+    if (GetLocation(oleg).GetName() == "FieldA" && (location[0] < 0 || location[0] > map.size() - 1 || location[1] < 0 || location[1] > map.at(0).size() - 1 || map[location[0]][location[1]].GetName() == "N" || map[location[0]][location[1]].GetName() == "NULL")) {
+        cout << "Senpai shouldn't listen to Trolls Dx." << endl << "Keep in mind, some paths may not be accessible." << endl << endl;
+        cout << "> See a trail heading south " << endl;
+        
         return false;
     }
-    else if ((int)map.at(oleg.GetCoord(0)).at(oleg.GetCoord(1)).GetNumChar() == 0) {
-        return true;
-    }
-    else if (map.at(oleg.GetCoord(0)).at(oleg.GetCoord(1)).GetChar(0).GetBeaten() == false && map.at(location[0]).at(location[1]).GetNumChar() == 0) {
-        cout << "You cannot progress to the next area until you remove \nthe enemy obstacle of this area desu..." << endl;
-        return false;
-    }
-    else if (map.at(oleg.GetCoord(0)).at(oleg.GetCoord(1)).GetChar(0).GetBeaten() == false && map.at(location[0]).at(location[1]).GetChar(0).GetBeaten() == false) {
-        cout << "You cannot progress to the next area until you remove \nthe enemy obstacle of this area desu..." << endl;
-        return false;
-    }
-    else
-        return true;
+    
+        if (location[0] < 0 || location[0] > map.size() - 1 || location[1] < 0 || location[1] > map.at(0).size() - 1 || map[location[0]][location[1]].GetName() == "N" || map[location[0]][location[1]].GetName() == "NULL") {
+            cout << "That is not a valid direction, Senpai. Try typing 'look'\nto to orient yourself ;)" << endl;
+            return false;
+        }
+        else if ((int)map.at(oleg.GetCoord(0)).at(oleg.GetCoord(1)).GetNumChar() == 0) {
+            return true;
+        }
+        else if (map.at(oleg.GetCoord(0)).at(oleg.GetCoord(1)).GetChar(0).GetBeaten() == false && map.at(location[0]).at(location[1]).GetNumChar() == 0) {
+            cout << "You cannot progress to the next area until you remove \nthe enemy obstacle of this area desu..." << endl;
+            return false;
+        }
+        else if (map.at(oleg.GetCoord(0)).at(oleg.GetCoord(1)).GetChar(0).GetBeaten() == false && map.at(location[0]).at(location[1]).GetChar(0).GetBeaten() == false) {
+            cout << "You cannot progress to the next area until you remove \nthe enemy obstacle of this area desu..." << endl;
+            return false;
+        }
+        else
+            return true;
+    
 }

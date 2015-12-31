@@ -8,6 +8,7 @@ const int MAX_CHR = Location::MAX_CHR;
 void Move( Player &oleg, Map &map);
 string CleanUp(string str);
 string Normalize(string str);
+void Cont(Map &map, Player &oleg);
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -19,7 +20,6 @@ int main() {
 
     int StartCoord[2] = { 3, 0 };
     string action;
-    char pDir;
     string toPrint;
     int counter = 0;
 
@@ -32,88 +32,185 @@ int main() {
    // Dad.retrieveLines(textfilenamefordad)
     Character Troll(100, 10, true, "Troll"); //2
     Character Nazi(1, 1, false, "Grammar Nazi"); //3
-    Character Atheist(1, 1, false, "Middle School Atheist");   //4
-    Character Bro(1, 1, false, "Fit Bro");    //5
-    Character Fedora(1, 1, false, "Fedora"); //6
-    Character Stan(1, 1, false, "Stan");   //7
-    Character Oppai(100, 10, true, "Oppai Chan");    //8
-    Character Charf(100, 10, true, "An Hero"); //9 
-    Character Shinji(100, 10, true, "Shinji");   //10
-    Character Fuccboi(100, 10, true, "fuccboi");    //11
-    Character Tumbl(1, 1, false, "Tumblrina"); //12
-    Character Tsun(1, 1, false, "Tsundere Masterrace");   //13
-    Character Grill(100, 10, true, "Gamer Grill");    //14
-    Character Vegeta(1, 1, false, "Vegeta"); //15-- if endurance == 100 "eeh... you dont to fight me..."
-    Character Shitlord(10, 10, false, "Shitlord");   //16
+    //Character Atheist(1, 1, false, "Middle School Atheist");   //4
+    Character Bro(1, 1, false, "Fit Bro");    //4
+    Character Fedora(1, 1, false, "Fedora"); //5
+    Character Stan(1, 1, false, "Stan");   //6
+    Character Oppai(100, 10, true, "Oppai Chan");    //7
+    Character Hero(100, 10, true, "An Hero"); //8 
+    Character Tsun(100, 10, true, "Tsundere Masterrace");   //9
+    Character Fuccboi(100, 10, true, "fuccboi");    //10
+    Character Tumbl(1, 1, false, "Tumblrina"); //11
+    Character Shitlord(1, 1, false, "Shitlord");   //12
+    //Character Grill(100, 10, true, "Gamer Grill");    //14
+    //Character Vegeta(1, 1, false, "Vegeta"); //15-- if endurance == 100 "eeh... you dont to fight me..."
+    //Character Shitlord(10, 10, false, "Shitlord");   //16
 
 
     map.GetMap()[3][0].AddChar(Dad);  //1
     map.GetMap()[3][1].AddChar(Troll);   //2
     map.GetMap()[2][0].AddChar(Nazi);   //3
-    map.GetMap()[2][1].AddChar(Atheist);  //4
-    map.GetMap()[4][1].AddChar(Bro);    //5
-    map.GetMap()[1][0].AddChar(Fedora);   //6
-    map.GetMap()[4][2].AddChar(Stan);  //7
-    map.GetMap()[1][1].AddChar(Oppai);    //8
-    map.GetMap()[4][3].AddChar(Charf);   //9
-    map.GetMap()[1][2].AddChar(Shinji);  //10
-    map.GetMap()[3][3].AddChar(Fuccboi);    //11
-    map.GetMap()[2][3].AddChar(Tumbl);   //12
-    map.GetMap()[1][3].AddChar(Tsun);  //13
-    map.GetMap()[1][4].AddChar(Grill);    //14
-    map.GetMap()[0][3].AddChar(Vegeta);   //15
-    map.GetMap()[0][4].AddChar(Shitlord);  //16
+    //map.GetMap()[2][1].AddChar(Atheist);  //4
+    map.GetMap()[4][1].AddChar(Bro);    //4
+    map.GetMap()[1][0].AddChar(Fedora);   //5
+    map.GetMap()[4][2].AddChar(Stan);  //6
+    map.GetMap()[1][1].AddChar(Oppai);    //7
+    map.GetMap()[4][3].AddChar(Hero);   //8
+    map.GetMap()[1][2].AddChar(Tsun);  //9
+    map.GetMap()[3][3].AddChar(Fuccboi);    //10
+    map.GetMap()[2][3].AddChar(Tumbl);   //11
+    map.GetMap()[1][3].AddChar(Shitlord);  //12
+    //map.GetMap()[1][4].AddChar(Grill);    //14
+    //map.GetMap()[0][3].AddChar(Vegeta);   //15
+    //map.GetMap()[0][4].AddChar(Shitlord);  //16
 
 
     //Gameplay stuff
     cout << "***********Kawaifu Quest***********" << endl << endl;
 
     string waifu;
-    cout << "> waifu name: ";
-    cin >> waifu;
-    cin.ignore();
-    //toPrint = "It's a dark, stormy night and you (Bunnicula) have just woken up on the first floor of Brown Building in what appears to be a computer lab. "
-    //    "Disoriented and confused, an urgent thought comes into your mind I have to get out of here! "
-    //    "And so, dear, fluffy adventurer, your journey begins. You may want to 'look' around to see what is immediately surrounding you. Base your actions on what you see. (Enter 'look,' sans apostrophes.)";
-    //cout << Normalize(toPrint);
+    //cout << "> Wake up next to favorite daki of (enter Waifu's name): ";
+    //cin >> waifu;
+    //cin.ignore();
+
+    cout << "> Go to browse the internets. " << endl;
+    cout << "> Someone calls " << waifu << " shit" << endl;
+    //cout << "> \"your waifu a shit,\" he says. " << endl << "> ohItsOn.jpg " << endl << "> prepare to travel to the ends of the earth to find this guy and... beat him up " << endl;
+    //cout << "> seems like a good idea to 'look' around room and";
+    //cout << "> Suddenly, Dad busts in shouting and shit " << endl;
+    //cout << endl << "Dad: I'm tired of you being such a pussy! Get off your damn computer! " << endl << endl;
+    //cout << "> Oh shit " << endl << "> Better 'attack' this faggot " << endl;
 
 
-    while (!map.GetMap()[0][4].GetChar(0).GetBeaten()) {
+    int count = 0;
+    while (!map.GetMap()[1][3].GetChar(0).GetBeaten()) {
 
-            cout << "\nPlease enter the action you would like to perform: ";
+            //Cont(map, Oleg);
+        
+        if (map.GetLocation(Oleg).GetName() == "Home" && count == 0) {
+            cout << "> \"your waifu a shit,\" he says. " << endl << "> ohItsOn.jpg " << endl << "> prepare to travel to the ends of the earth to find this guy and... beat him up " << endl;
+            cout << "> Suddenly, Dad busts in shouting and shit " << endl;
+            cout << endl << "Dad: I'm tired of you being such a pussy! Get off your damn computer! " << endl << endl;
+            cout << "> Oh shit " << endl << "> Better 'attack' this faggot " << endl;
+            count = 1;
+
+            if (map.GetLocation(Oleg).GetChar(0).GetBeaten()) { // DIS DUN WORK
+                cout << "> Better leave before mom calls for dinner " << endl;
+                cout << "> Should 'move' north (up arrow key) to exit through the front door or east (right arrow key) to exit through the patio. " << endl;
+
+            }
+        }
+        else if (map.GetLocation(Oleg).GetName() == "FieldA" && count == 1) {
+            cout << "> Be me. Be in a field. \n> Some fag meandering about.\n> Should probably 'talk' to him " << endl;
+            count = 2;
+
+        }
+        else if (map.GetLocation(Oleg).GetName() == "ClifA" && count == 2){        
+            cout << "> Walk for fucking ages... Then finally on top of a cliff \n> spot guy doing pull ups from a tree branch \n> go up to see if he will disclose his secrets to dat pump" << endl;
+            count = 3;
+        
+        }
+        else if (map.GetLocation(Oleg).GetName() == "ClifB" && count == 3){
+            cout << "> See some guy just on a hike. \n>Aaaah what a faggot! Better give him a piece of my mind!" << endl;
+            if (action == "attack") {
+                cout << "Stan: Whoa man, I don’t want any trouble... What the fu---" << endl;
+
+            }
+            count = 4;
+        
+        }
+        else if (map.GetLocation(Oleg).GetName() == "ClifC" && count == 4){
+            cout << "> There's a guy standing at the edge of the cliff \n> He seems knowledgeable; better talk to him" << endl;
+            count == 5;
+        }
+        else if (map.GetLocation(Oleg).GetName() == "Town" && count == 5) {
+
+        }
+        else if (map.GetLocation(Oleg).GetName() == "Gorge" && count == 6){
+        
+        }
+        else if (map.GetLocation(Oleg).GetName() == "FieldB" && count == 7){
+        
+        }
+        else if (map.GetLocation(Oleg).GetName() == "Marsh" && count == 8){
+            cout << "*classy gentleman appears*" << endl;
+
+        }
+        else if (map.GetLocation(Oleg).GetName() == "CaveA" && count == 9){
+        
+        }
+        else if (map.GetLocation(Oleg).GetName() == "CaveB" && count == 10){
+        
+        }
+        else if (map.GetLocation(Oleg).GetName() == "Goal" && count == 11){
+        
+        }
+
+
+
+
+        cout << "\nPlease enter the action you would like to perform: ";
             getline(cin, action);
             action = CleanUp(action);
 
             if (action == "move") {
-                //cout << "Direction: ";
-                //cin >> pDir;
-                //getline(cin, toPrint);
-                ////cin.ignore();
-                //Move(pDir, James, BrownMap);
 
                 Move(Oleg, map);
+
                 cout << "Current location: " << map.GetLocation(Oleg).GetName() << endl;
             }
             else if (action == "look") {
-                if (map.GetLocation(Oleg).GetNumChar() == 0 || !(map.GetLocation(Oleg).GetChar(0).GetBeaten())) {
+                if (map.GetLocation(Oleg).GetNumChar() == 0 || (!(map.GetLocation(Oleg).GetChar(0).GetBeaten()) && map.GetLocation(Oleg).GetChar(0).GetEndurance() < 100)) {
+                    map.GetLocation(Oleg).Look();
+                    toPrint = "Current Location: " + map.GetLocation(Oleg).GetName();
+                    cout << Normalize(toPrint);
+                }
+                else if ((map.GetLocation(Oleg).GetChar(0).GetBeaten()) && map.GetLocation(Oleg).GetChar(0).GetEndurance() == 100) {
                     map.GetLocation(Oleg).Look();
                     toPrint = "Current Location: " + map.GetLocation(Oleg).GetName();
                     cout << Normalize(toPrint);
                 }
                 else {
-                    toPrint = "Senpai, don't waste time here. Continue on with your quest >_<!";                //Outputs to the consol when there are no living characters in the area.
-                    if (map.GetLocation(Oleg).GetName() == "Lab") {
-                        toPrint += " There is an exit to the north. ";
+                    toPrint = "Senpai, don't waste time here. Continue on with your quest >_<!\n";                //Outputs to the consol when there are no living characters in the area.
+                    if (map.GetLocation(Oleg).GetName() == "Home") {
+                        toPrint += " > Should be able to 'move' north (up arrow key) to exit through the front door or east (right arrow key) to exit through the patio. ";
                     }
-                    else if (map.GetLocation(Oleg).GetName() == "Starbucks") {
-                        toPrint += " Inside the cubic parameter of the coffee dispensary, you see a woman working at this establishment. You also note a hallway to the east. ";
+                    else if (map.GetLocation(Oleg).GetName() == "FieldA") {
+                        toPrint += " > see a trail heading south  ";
                     }
-                    else if (map.GetLocation(Oleg).GetName() == "HallwayB") {
-                        toPrint += " The final step in your quest for freedom lies to the east.";
+                    else if (map.GetLocation(Oleg).GetName() == "ClifA") {
+                        toPrint += " > cliff continues to the east, better be on way";
                     }
-                    toPrint += map.GetLocation(Oleg).GetChar(0).GetName() + " is in the " + map.GetLocation(Oleg).GetName();
+                    else if (map.GetLocation(Oleg).GetName() == "ClifB") {
+                        toPrint += " > Continue east along the cliff";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "ClifC") {
+                        toPrint += " > town nearby. only way to go is north!";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "Town") {
+                        toPrint += " > nothing more to do here. Gotta head north to leave town";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "Gorge") {
+                        toPrint += " > close to victory... head north!";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "FieldB") {
+                        toPrint += " > head north";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "Marsh") {
+                        toPrint += " > head east and never look back";                   
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "CaveA") {
+                        toPrint += " > it's dark, but it seems the only way to go is east";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "CaveB") {
+                        toPrint += " > there's a light at the end of the cave in the east direction";
+                    }
+                    else if (map.GetLocation(Oleg).GetName() == "Goal") {
+                        toPrint += " > -------------------------";
+                    }
+                    toPrint += "\n" + map.GetLocation(Oleg).GetChar(0).GetName() + " is in the " + map.GetLocation(Oleg).GetName();
                     cout << Normalize(toPrint) << endl;
-                    if ((map.GetLocation(Oleg).GetNumChar() == 2)) {
+                    if ((map.GetLocation(Oleg).GetNumChar() == 1)) {
                         cout << "\nAvailable commands:\n'move'\n'look'\n'talk'\n";
                     }
                     else {
@@ -125,15 +222,16 @@ int main() {
             }
             else if (action == "attack") {
                 if (counter == 0) {
-                     cout << "\nNow, one warning... from here on out, when you enter 'attack', the direction\nof the opponent's attack will be presented on the consol and you must type: \n\n'right' to dodge an oncoming attack from the left, \n'left' to dodge an attack coming from the"
+
+                    /* cout << "\nNow, one warning... from here on out, when you enter 'attack', the direction\nof the opponent's attack will be presented on the console and you must type: \n\n'right' to dodge an oncoming attack from the left, \n'left' to dodge an attack coming from the"
                          " right, and \n'jump' to dodge a kicking attack.\n\nYou must input the appropriate dodge quickly or else your foe will have\nsucceeded in his/her attack. If your foe does succeed, you will start at\nyour original location and you may not"
-                         " progress to the next stage until\nyou have beaten your opponent.\n";
+                         " progress to the next stage until\nyou have beaten your opponent.\n";*/
                     counter += 1;
                 }
         
                 else {
                     if (map.GetLocation(Oleg).GetNumChar() == 0 || map.GetLocation(Oleg).GetChar(0).GetBeaten()) {
-                        toPrint = "There are no other enemies in your immediate vicinity, good job, Senpai!";
+                        toPrint = "There are no other enemies in your immediate vicinity. Good job, Senpai!";
                         cout << Normalize(toPrint);
                     }
                     else if (map.GetLocation(Oleg).GetChar(0).Attack(Oleg)) {
@@ -141,7 +239,7 @@ int main() {
                     }
                     else {
 
-                        toPrint = "Sugoi! You are dynamite, and " + map.GetLocation(Oleg).GetChar(0).GetName() // name of character
+                        toPrint = "Sugoi! You are daijoubu, and " + map.GetLocation(Oleg).GetChar(0).GetName() // name of character
                             + " will not risk another frontal assualt. ";
                         cout << Normalize(toPrint);
                         map.GetLocation(Oleg).GetChar(0).SetBeaten(true);
@@ -155,7 +253,7 @@ int main() {
                 }
             }
     
-        else if (action == "talk" && map.GetLocation(Oleg).GetName() == "Starbucks") {
+        else if (action == "talk") {
             map.GetLocation(Oleg).Talk();
         }
         else {
@@ -290,4 +388,34 @@ string Normalize(string str) {
     }
     str.append("\n");
     return str;
+}
+
+void Cont(Map &map, Player &oleg) {
+
+    if (map.GetLocation(oleg).GetName() == "Home") {
+        cout << "> \"your waifu a shit,\" he says. " << endl << "> ohItsOn.jpg " << endl << "> prepare to travel to the ends of the earth to find this guy and... beat him up " << endl;
+        cout << "> Suddenly, Dad busts in shouting and shit " << endl;
+        cout << endl << "Dad: I'm tired of you being such a pussy! Get off your damn computer! " << endl << endl;
+        cout << "> Oh shit " << endl << "> Better 'attack' this faggot " << endl;
+        if (map.GetLocation(oleg).GetChar(0).GetBeaten() && map.GetLocation(oleg).GetChar(0).GetEndurance() < 100) {
+            cout << "> Better leave before mom calls for dinner " << endl;
+            cout << "> Should 'move' north (up arrow key) to exit through the front door or east (right arrow key) to exit through the patio. " << endl;
+
+        }
+    }
+    else if (map.GetLocation(oleg).GetName() == "FieldA") {
+        cout << "> Be me. Be in a field. \n> Some fag meandering about.\n> Should probably 'talk' to him " << endl;
+
+
+    }
+    else if (map.GetLocation(oleg).GetName() == "ClifA") {
+        cout << "> Walk for fucking ages… Then finally on top of a cliff \n> spot guy doing pull ups from a tree branch \n> go up to see if he will disclose his secrets to dat pump" << endl;
+
+
+    }
+
+    
+
+
+
 }

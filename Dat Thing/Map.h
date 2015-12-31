@@ -9,9 +9,11 @@ using namespace std;
 class Map {
 
 public:
+
     //Constructors: Deafult and Non-Default
     Map();
     Map(string filename);
+
 
     //Mutator and accessor functions
     vector<vector<Location>>& GetMap();
@@ -27,4 +29,5 @@ private:
 
     //Data member!
     vector<vector<Location>> map;
+
 };

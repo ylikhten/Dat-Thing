@@ -20,6 +20,7 @@ public:
     Character& GetChar(int index);
 
     //Other member functions
+    void Text();
     void Look();
     void Talk();
     void AddChar(Character character);
