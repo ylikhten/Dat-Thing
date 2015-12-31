@@ -1,5 +1,7 @@
-﻿  main.cpp
-c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(381): warning C4018: '<': signed/unsigned mismatch
-c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(390): warning C4018: '<': signed/unsigned mismatch
-c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(456): warning C4715: 'Cont': not all control paths return a value
+﻿  Location.cpp
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\location.cpp(108): warning C4267: 'return': conversion from 'size_t' to 'short', possible loss of data
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\location.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\location.cpp(131): warning C4018: '<': signed/unsigned mismatch
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\location.cpp(215): warning C4018: '<': signed/unsigned mismatch
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\location.cpp(118): warning C4715: 'Location::GetChar': not all control paths return a value
   Dat Thing.vcxproj -> C:\Users\Yanina\Documents\SCHOOL\CSM\Fall 2015\CSCI261\Dat Thing\Debug\Dat Thing.exe

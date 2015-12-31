@@ -54,18 +54,18 @@ void Map::LoadFile(string filename) {
                 }
                 if (isalpha(c)) {
                     tempStr.push_back(c);
-                    cout << c;                                    //DEBUGGER
+                    //cout << c;                                    //DEBUGGER
                 }
 
             }
-            cout << "\t";
+            //cout << "\t";
             //cout << tempStr << "\t";                              //DEBUGGER
             tempRow.at(k).SetName(tempStr);
             c = 'c';
             tempStr = "";
         }
         map.at(i) = tempRow;
-        cout << endl;                                             //DEBUGGER
+        //cout << endl;                                             //DEBUGGER
     }
     file.close();                                                   // Closes file
 }
@@ -98,4 +98,5 @@ bool Map::isValidLocation(int location[2], const Player &oleg) {
         else
             return true;
     
-}
+}    
+

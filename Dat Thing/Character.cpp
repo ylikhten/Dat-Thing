@@ -94,10 +94,10 @@ bool Character::Attack(Player &oleg) {
         UserTime = clock() - UserTime;
 
         if (((double)UserTime / CLOCKS_PER_SEC) <= 11 - speed && CorrectResponse == UserInput) {
-            cout << "\nSuccessful dodge!" << endl;
+            cout << "\nACE" << endl;
         }
         else {
-            cout << "You've been hit! Everything goes dark, and the world begins to spin\nBefore blacking out, you stumble back Home to recupurate.\n";
+            cout << "Senpai you've been hit! Your lanky, undernourished body was not ready for this. Your vision gets cloudy. \nBefore blacking out, you stumble back Home to recupurate.\n";
             oleg.SetHealth(oleg.GetHealth() - 1);
             return true;
         }

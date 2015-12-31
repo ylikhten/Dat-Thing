@@ -131,11 +131,11 @@ void Location::Look() {
     for (int i = 0; i < characters.size(); ++i)
         cout << characters.at(i).GetName() << " is in the area";
     if (characters.size() > 0) {
-        if (characters.size() > 1) {
+        if (characters.size() > 0 && GetChar(0).GetEndurance() < 100) {
             cout << "\nAvailable commands:\n'attack'\n'move'\n'look'\n'talk'\n";
         }
         else {
-            cout << "\nAvailable commands:\n'attack'\n'move'\n'look'\n";
+            cout << "\nAvailable commands:\n'move'\n'look'\n'talk'\n";
         }
     }
 }
@@ -143,9 +143,6 @@ void Location::Talk() {
     if (name == "FieldA") {
         FlvTxt = "Troll: You look like you're on a quest m8. I suggest going east about here, it's a faster route.";
         cout << Normalize(FlvTxt) << endl;
-
-        //cout << "> See a trail heading south and another trail heading north " << endl;
-        //cout << "> ";
         
     }
     else if (name == "ClifA") {
@@ -204,7 +201,7 @@ void Location::Talk() {
 
 
     else {
-        cout << "\nPerhaps you should feed on your opponent first..." << endl;
+        cout << "\n> There is no use talking to this brute! Fighto!!" << endl;
     }
 
 }

@@ -23,6 +23,7 @@ public:
     Location& GetLocation(const Player &oleg);
     bool isValidLocation(int location[2], const Player &oleg);
 
+
 private:
     //Private helper function
     void LoadFile(string filename);
