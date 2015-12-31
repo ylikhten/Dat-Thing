@@ -151,7 +151,7 @@ void Location::Talk() {
     else if (name == "ClifA") {
         FlvTxt = "Fit Bro: Wat you looking at faggot... WANNA FIGHT?!";
         cout << Normalize(FlvTxt) << endl;
-        cout << "< He will not...";
+        cout << "< He will not..." << endl;
 
     }
     else if (name == "ClifB") {
@@ -160,28 +160,42 @@ void Location::Talk() {
         
     }
     else if (name == "ClifC") {
-        FlvTxt = "An Hero: Someone in town called me a plebeian and told me I had a weak jaw line. I’m going to end it! ;-;";
+        FlvTxt = "An Hero: Someone in town called me a plebeian and told me I had a weak jaw line. I'm going to end it! ;-;";
         cout << Normalize(FlvTxt) << endl;
         cout << "> Realize there is a town nearby. \n>Must be going right way. Continue north to town." << endl;
 
     }
     else if (name == "Town") {
-
+        FlvTxt = "fuccboi: Your waifu? Yeah, I've heard of your waifu. If she's anything like your fit, she must be shit. Dick Owens, Gaff Simmons, what you should be dressed in.";
+        cout << Normalize(FlvTxt) << endl;
+        cout << "> He knows… I must be close. Head north to leave town." << endl;
     }
     else if (name == "Gorge") {
+        FlvTxt = "Tumblrina: I need feminism because the patriarchy shouldn't be able to tell me I'm unhealthy!";
+        cout << Normalize(FlvTxt) << endl;
 
+        cout << "souleaterface.jpg" << endl;
     }
     else if (name == "FieldB") {
-
+        FlvTxt = "Grammar Nazi: No, I am not doing good! I am doing well, you barbarian. But not anymore, now that I have heard how you torture the english language. ";
+        cout << Normalize(FlvTxt) << endl;
     }
     else if (name == "Marsh") {
-
+        FlvTxt = "Fedora: *tipping intensifies*";
+        cout << Normalize(FlvTxt) << endl;
     }
     else if (name == "CaveA") {
-
+        FlvTxt = "Oppai Chan: Ara, ara, Senpai. You are not looking so genki today. I am afraid I must warn you. You may soon find what will be most unpleasant to you.";
+        cout << Normalize(FlvTxt) << endl;
+        cout << "> *shrug* \n>Head east, fgt" << endl;
     }
     else if (name == "CaveB") {
+        FlvTxt = "Tsundere Master Race: BAKA! Don't scare me like that! "
+            "What?! I-it's not like I'm doing anything weird in here... I.. just... uh...  like how damp it is! ... "
+            "I-if you think a weakling such as yourself will be able to avenge your waifu, you're wrong! BAAAAKKKAAAA";
+        cout << Normalize(FlvTxt) << endl;
 
+        cout << "> Head more east.. Baka ;-;" << endl;
     }
     else if (name == "Goal") {
 

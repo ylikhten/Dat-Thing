@@ -1,5 +1,4 @@
 ﻿  main.cpp
-c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(124): warning C4553: '==': operator has no effect; did you intend '='?
-c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(373): warning C4018: '<': signed/unsigned mismatch
-c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(382): warning C4018: '<': signed/unsigned mismatch
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(413): warning C4018: '<': signed/unsigned mismatch
+c:\users\yanina\documents\school\csm\fall 2015\csci261\dat thing\dat thing\main.cpp(422): warning C4018: '<': signed/unsigned mismatch
   Dat Thing.vcxproj -> C:\Users\Yanina\Documents\SCHOOL\CSM\Fall 2015\CSCI261\Dat Thing\Debug\Dat Thing.exe

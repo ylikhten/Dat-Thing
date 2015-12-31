@@ -52,6 +52,21 @@ void Character::SetName(string Name) {
 // MEMBER FUNCTIONS
 bool Character::Attack(Player &oleg) {
 
+    if (name == "Stan") {
+
+        cout << "Stan: Whoa man, I don't want any trouble... What the fu---" << endl;
+    }
+    else if (name == "Tumblrina") {
+
+        cout << "Tumblrina: Check your privilege you cis pig, these are muh curves!" << endl;
+
+    }
+    else if (name == "Fedora") {
+
+        cout << "*tipping intensifies*" << endl;
+
+    }
+
     srand((int)time);
     int UserTime;
     string UserInput, CorrectResponse;
@@ -86,8 +101,10 @@ bool Character::Attack(Player &oleg) {
             oleg.SetHealth(oleg.GetHealth() - 1);
             return true;
         }
+
     }
     return false;
+
 }
 
 bool Character::Talk(Player &oleg) {
